@@ -1,0 +1,27 @@
+{
+  "name": "node-api-backend",
+  "version": "1.0.0",
+  "description": "DesafiovBackEndCRUD com Node.Js, MongoDb e Express.js",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/glaucia86/video-nodejs-mongo-restful-crud"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.15.5",
+    "mongoose": "*",
+    "request": "~2.82.0"
+  },
+  "author": "Valdir Torres",
+  "bugs": {
+    "url": "https://github.com/valdyrtorres/apibackend/issues"
+  },
+  "homepage": "https://github.com/valdyrtorres/apibackend#readme",
+  "devDependencies": {
+    "nodemon": "^1.12.1"
+  }
+}
