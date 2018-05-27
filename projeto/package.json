@@ -12,11 +12,12 @@
   },
   "dependencies": {
     "body-parser": "^1.18.3",
-    "express": "^4.15.5",
-    "mongoose": "*",
-    "request": "~2.82.0"
+    "express": "^4.16.0",
+    "mongoose": "~5.1.2",
+    "request": "~2.87.0"
   },
   "author": "Valdir Torres",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/valdyrtorres/apibackend/issues"
   },
