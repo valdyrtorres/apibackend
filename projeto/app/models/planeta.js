@@ -5,6 +5,7 @@
 * Data: 17/05/2018
 */
 var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost:27017/starwars');
 
 /*
 *  Classe Planeta

@@ -1,7 +1,7 @@
 // routes/index.js
 
-const apiRoutes = require('./api_routes');
+const rotasPlanetas = require('./rotas_planetas');
 module.exports = function(app, db) {
-  apiRoutes(app, db);
+  rotasPlanetas(app, db);
   // Other route groups could go here, in the future
 };
