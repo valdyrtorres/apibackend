@@ -14,7 +14,7 @@ var bodyParser = require('body-parser');
 var indexRouter = require('./app/routes/index'); // Rotas da Api
 var Planeta = require('./app/models/planeta'); // Conexão com o banco
 
-// Configuração do app para usar o boduParser()
+// Configuração do app para usar o bodyParser()
 app.use(bodyParser.urlencoded({ extended: true}));
 app.use(bodyParser.json());
 

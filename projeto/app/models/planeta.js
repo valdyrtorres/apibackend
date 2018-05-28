@@ -6,6 +6,7 @@
 */
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost:27017/starwars');
+//mongoose.connect('mongodb://vtorres:test@ds235840.mlab.com:35840/starwars-mlab');
 
 /*
 *  Classe Planeta
