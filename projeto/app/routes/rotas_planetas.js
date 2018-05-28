@@ -46,6 +46,21 @@ router.get('/planetas', function(req, res) {
 
 });
 
+// 3) Método: Buscar planeta por nome ==> GET http://localhost:8000/apistarwars/planetas/:planeta_nome
+router.get('/planetas/:planeta_nome', function(req, res) {
+    var db = require("../models/planeta");
+    var Planetas = db.Mongoose.model('Planetas', db.PlanetaSchema, 'Planetas');
+    var query = { nome : req.params.planeta_nome };
+    
+    Planetas.find(query, function (err, planeta) {
+       if(err)
+           res.send('Planeta não encontrado:' + err);
+       else
+           res.json(planeta);
+    });
+
+});
+
  // 4) Método: Buscar planeta por id ==> GET http://localhost:8000/apistarwars/planetas/:planeta_id
  router.get('/planetas/:planeta_id', function(req, res) {
     var db = require("../models/planeta");
