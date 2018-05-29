@@ -15,21 +15,47 @@ router.post('/planetas/add', function (req, res) {
     var planetaNome = req.body.nome;
     var planetaClima = req.body.clima;
     var planetaTerreno = req.body.terreno;
-    var planetaNumFilmes = req.body.num_filmes;
- 
-    var Planetas = db.Mongoose.model('Planetas', db.PlanetaSchema, 'Planetas');
-    var planeta = new Planetas({ nome: planetaNome, clima: planetaClima, terreno: planetaTerreno, num_filmes: planetaNumFilmes});
-    planeta.save(function (err) {
-        if (err) {
-            console.log("Error! " + err.message);
-            res.send('Erro ao adicionar o Planeta....: ' + error);
-            return err;
-        }
-        else {
-            console.log("Planeta adicionado!");
-            res.json({ message: 'Planeta adicionado!' });
-        }
+    
+
+    // TODO GET o numero de filmes de https://swapi.co
+    var request = require("request")
+    var url = "https://swapi.co/api/planets/?search=" + planetaNome;
+    var obj = '';
+
+    request({
+        url: url,
+        json: true
+    }, function (err, response, body) {
+
+        // Contando o numero aparicoes em filmes
+        if (!err && response.statusCode === 200) {
+
+            var planetaNumFilmes = 0;
+            try {
+               var newData = body.results[0].films.length;
+               planetaNumFilmes = newData;
+            } catch(e) {
+                planetaNumFilmes = 0;
+                console.log("Erro:",e);
+                
+            }
+
+            var Planetas = db.Mongoose.model('Planetas', db.PlanetaSchema, 'Planetas');
+            var planeta = new Planetas({ nome: planetaNome, clima: planetaClima, terreno: planetaTerreno, num_filmes: planetaNumFilmes});
+            planeta.save(function (err) {
+                if (err) {
+                console.log("Error! " + err.message);
+                res.send('Erro ao adicionar o Planeta....: ' + error);
+                return err;
+                } else {
+                    console.log("Planeta adicionado!");
+                    res.json({ message: 'Planeta adicionado!' });
+               }
+            });
+            
+        } 
     });
+
 });    
 
 // 2) Método: Listar planetas ==> GET http://localhost:8000/apistarwars/planetas
