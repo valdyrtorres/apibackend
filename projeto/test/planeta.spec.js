@@ -129,7 +129,7 @@ describe("Teste apiBackend apistarwars GET",function(){
 describe("Teste apiBackend apistarwars DELETE /planetas/del",function(){
   this.timeout(15000);
 
-  // Teste buscar planete por id
+  // Teste deletar planeta por id
   it("5 - Deletar planeta por id. Ex: Deletar pelo id do planeta Naboo",function(done){
     server.delete('/del/' + idPlaneta).end(function(error, res) {
       if (error) {
